@@ -66,8 +66,7 @@
         }
 
         .mainFilter {
-            background-color: #f3f3f3;
-            border-radius: 50px;
+            background-color: #fff;
             padding: 10px 30px;
             margin-top: 30px;
         }
@@ -120,6 +119,7 @@
 
         .mainFilter .form-group {
             margin-bottom: 0;
+            padding: 0 15px;
         }
 
         .input-field {
@@ -129,22 +129,35 @@
         }
 
         .mainFilter {
-            background-color: #f3f3f3;
-            border-radius: 8px;
             padding: 10px 30px;
             position: absolute;
             z-index: 99;
             left: 0;
             right: 0;
-            width: 1024px;
             margin: auto;
             top: 80px;
             display: none;
         }
 
+        .mainFilter .form-group label {
+            line-height: 1;
+            font-size: 14px;
+        }
+
+        .filterbg {
+            background-color: #ebebeb;
+            padding: 0px;
+            border-radius: 32px;
+            overflow: hidden;
+        }
 
         .active {
             background-color: #fff;
+        }
+
+        .boxClass {
+            border-radius: 32px;
+            padding: 10px 20px 5px;
         }
 
         button.closeBtn {
@@ -255,7 +268,7 @@
         .active_title p::after {
             width: 100%;
             content: '';
-            border-bottom: 1px solid #625c5c;
+            border-bottom: 2px solid #625c5c;
             height: 8px;
             position: absolute;
             bottom: 0;
@@ -334,11 +347,19 @@
             font-weight: 700;
         }
 
+        .sliderBox .slick-list.draggable {
+            border-radius: 30px;
+        }
+
         .sliderBox {
-            border-radius: 20px !important;
+            /* border-radius: 20px !important; */
             overflow: hidden !important;
             margin-bottom: 15px;
-            height: 230px;
+            /* height: 230px; */
+        }
+
+        .sliderBox .slick-dotted.slick-slider {
+            margin-bottom: 0px;
         }
 
         .property_box {
@@ -350,25 +371,66 @@
             flex-shrink: 0;
         }
 
-        .title-box {display: -webkit-box;-webkit-line-clamp: 1;overflow: hidden;-webkit-box-orient: vertical;}
+        .title-box {
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+        }
 
-.title-box h5 {
-    font-size: 17px;
-}
+        .title-box h5 {
+            font-size: 17px;
+        }
 
-.wishList {
-    position: absolute;
-    z-index: 999;
-    right: 5px;
-    top: 5px;
-}
+        .wishList {
+            position: absolute;
+            z-index: 999;
+            right: 5px;
+            top: 5px;
+        }
 
-.wishList button {
-    background-color: transparent;
-    outline: none;
-    border: none;
-    color: #000;
-}
+        .wishList button {
+            background-color: transparent;
+            outline: none;
+            border: none;
+            color: #000;
+        }
+
+        .openCanvas .filterOpen {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #000000a8;
+            z-index: 99;
+            top: 0;
+        }
+
+        body.openCanvas {
+            position: relative;
+        }
+
+        .openCanvas header {
+            z-index: 9999;
+            position: relative;
+            background-color: #fff;
+        }
+
+        .mainFilter input,
+        .mainFilter button {
+            outline: none;
+        }
+
+        @media(max-width: 799px) {
+            .filterBox {
+                margin: 20px 0;
+            }
+
+            .cat_filterBtn {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 
@@ -409,46 +471,45 @@
                     </div>
                 </div>
             </div>
-            <div class="mainFilter">
+        </div>
+        <div class="mainFilter">
+            <div class="filterbg container border">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 boxClass" id="search">
                         <div class="form-group">
                             <label for="search">
                                 Where
-                                <input type="text" placeholder="Search destinations" class="input-field" id="search">
+                                <input type="text" placeholder="Search destinations" class="input-field">
                             </label>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 boxClass" id="checkIn">
                         <div class="form-group">
                             <label for="checkIn">
                                 Check in
-                                <input type="date" placeholder="Add dates" class="input-field" id="checkIn">
+                                <input type="date" placeholder="Add dates" class="input-field">
                             </label>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-2 boxClass" id="checkOut">
                         <div class="form-group">
                             <label for="checkOut">
                                 Check in
-                                <input type="date" placeholder="Add dates" class="input-field" id="checkOut">
+                                <input type="date" placeholder="Add dates" class="input-field">
                             </label>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 boxClass" id="guests">
                         <div class="form-group">
                             <label for="guests">
                                 Who
                                 <div class="searchButton">
-                                    <input type="number" placeholder="Add guests" class="input-field" id="guests">
+                                    <input type="number" placeholder="Add guests" class="input-field">
                                     <button type="button"><i class="fa fa-search"></i> <span
                                             class="searchTxt">Search</span></button>
                                 </div>
                             </label>
                         </div>
-                    </div>
-                    <div class="closeBox">
-                        <button class="closeBtn" type="button"><i class="fa fa-times"></i></button>
                     </div>
                 </div>
             </div>
@@ -1150,11 +1211,11 @@
             </div>
         </div>
     </section>
-
+    <div class="filterOpen"></div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
 <script src="./slick/slick.js" type="text/javascript" charset="utf-8"></script>
 
 <script>
@@ -1164,7 +1225,23 @@
             infinite: true,
             centerMode: false,
             slidesToShow: 12,
-            slidesToScroll: 5
+            slidesToScroll: 5,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 5,
+                    }
+                },
+                {
+                    breakpoint: 540,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 5,
+                    }
+                }
+            ]
         });
 
         jQuery(".property_slide").slick({
@@ -1177,30 +1254,32 @@
 
         jQuery('.filterBox').click(function () {
             jQuery('.mainFilter').addClass('d-block');
+            jQuery('body').addClass('openCanvas');
         });
 
-        jQuery('filterBox .form-group').click(function () {
-            jQuery('filterBox .form-group input').removeClass('active');
-            jQuery(this).find('input').addClass('active');
+        jQuery('.boxClass').click(function () {
+            jQuery('.boxClass').removeClass('active');
+            jQuery(this).addClass('active');
         })
 
         jQuery('.anywhere').click(function () {
-            jQuery('.form-group input').removeClass('active');
-            jQuery('.form-group #search').addClass('active');
+            jQuery('.boxClass').removeClass('active');
+            jQuery('#search').addClass('active');
         })
 
         jQuery('.anyweek').click(function () {
-            jQuery('.form-group input').removeClass('active');
-            jQuery('.form-group #checkIn').addClass('active');
+            jQuery('.boxClass').removeClass('active');
+            jQuery('#checkIn').addClass('active');
         })
 
         jQuery('.addGuest').click(function () {
-            jQuery('.form-group input').removeClass('active');
-            jQuery('.form-group #guests').addClass('active');
+            jQuery('.boxClass').removeClass('active');
+            jQuery('#guests').addClass('active');
         })
 
-        jQuery('.closeBtn').click(function () {
+        jQuery('.closeBtn, .filterOpen').click(function () {
             jQuery('.mainFilter').removeClass('d-block');
+            jQuery('body').removeClass('openCanvas');
         })
 
         jQuery('.category_box').click(function () {
